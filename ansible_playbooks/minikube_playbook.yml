@@ -22,6 +22,9 @@
   - name: 5. Change chmod again
     shell:
       cmd: chmod +x /usr/local/bin/minikube
+  - name: Add contract files
+    apt-get:
+      name: conntrack
   - name: 5. Start minikube
     become: yes
     shell:
