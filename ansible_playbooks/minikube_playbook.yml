@@ -15,6 +15,7 @@
       cmd: chmod +x minikube
 
   - name: 4. Move minikube to local/bin
+    become: yes
     copy:
       src: minikube
       dest: /usr/local/bin/minikube
