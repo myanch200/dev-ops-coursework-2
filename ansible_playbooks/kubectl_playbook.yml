@@ -1,0 +1,35 @@
+- name: Playbook that installs kubectl
+  hosts: localhost
+  user: ubuntu
+  become: yes
+
+  # start tasks
+  tasks:
+  - name: 1. Update  apt packages
+    apt:
+      update_cache: yes
+  - name: 2. Dependecy packages installation
+    apt:
+      name: {{package}}
+    with_items:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+  - name: 3. Get key
+    shell:
+      cmd: curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+  - name: 4. Confirm auth fingerprinting
+    shell:
+      cmd: echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+  - name: 5. Update apt packages
+    apt:
+      update_cache: yes
+  - name: 6. Install kubectl
+    apt:
+      name: kubectl
+
+      
+  
+  
+  

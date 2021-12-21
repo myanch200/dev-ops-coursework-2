@@ -1,0 +1,13 @@
+- name: A playbook that scales in order to allow rolling changes
+  hosts: localhost
+  user: ubuntu
+  become: yes
+
+  tasks:
+  - name: 1. Kubectl  scale  deployment with 5 replicas
+    shell:
+      cmd: kubectl scale deployments/coursework2 --replicas=5
+
+  - name: 2. Get deployments
+    shell:
+      cmd: kubectl get deployments

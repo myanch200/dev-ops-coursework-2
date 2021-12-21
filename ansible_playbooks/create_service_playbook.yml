@@ -1,0 +1,13 @@
+- name: A playbook that creates service
+  hosts: localhost
+  user: ubuntu
+  become: yes
+
+  tasks:
+  - name: 1. Create a service
+    shell:
+      cmd: kubectl expose deployment/coursework2 --type="NodePort" --port 8080 --name node-port-service
+
+  - name: 2.Get services
+    shell:
+      cmd: kubectl get services
