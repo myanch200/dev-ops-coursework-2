@@ -22,10 +22,12 @@
   - name: 5. Change chmod again
     shell:
       cmd: chmod +x /usr/local/bin/minikube
-  - name: Add contract files
+  # that fixes the error: Sorry, Kubernetes v1.18.2 requires conntrack to be installed in root's path #7
+
+  - name: 6. Add contract files
     apt:
       name: conntrack
-  - name: 5. Start minikube
+  - name: 7. Start minikube
     become: yes
     shell:
       cmd: minikube start --driver=none
