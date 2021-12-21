@@ -25,5 +25,5 @@
   - name: 5. Start minikube
     become: yes
     shell:
-      cmd: minikube start 
+      cmd: minikube start --driver=none
      
