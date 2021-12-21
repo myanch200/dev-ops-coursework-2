@@ -10,16 +10,15 @@
   - name: 2. Install Minikube and change permissions
     shell:
       cmd: curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-  - name: Update permissions
+  - name: 3. Update permissions
     shell:
       cmd: chmod +x minikube
 
   - name: 4. Move minikube to local/bin
-    become: yes
-    copy:
-      src: minikube
-      dest: /usr/local/bin/minikube
-  - name: 4. Start minikube
+    shell:
+      cmd: sudo mv minikube /usr/local/bin/
+
+  - name: 5. Start minikube
     shell:
       cmd: minikube start 
      
