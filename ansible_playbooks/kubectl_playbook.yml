@@ -10,7 +10,7 @@
       update_cache: yes
   - name: 2. Dependecy packages installation
     apt:
-      name: {{package}}
+      name: "{{package}}"
     with_items:
       - apt-transport-https
       - ca-certificates
