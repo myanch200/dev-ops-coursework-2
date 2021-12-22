@@ -26,7 +26,7 @@ pipeline{
         stage('Build test the docker image'){
             steps{
                 script{
-                    docker.build(dockerImg)
+                    dockerImg.build
                 }
             }
         }
