@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment{
         dockerImg = ''
-        registery = "myanch200/coursework2"
+        registery = "myanch200/coursework2:${env.BUILD_NUMBER}"
         registeryCredential = 'docker_id'
     }
     stages{
