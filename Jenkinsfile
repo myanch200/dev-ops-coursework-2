@@ -27,7 +27,9 @@ pipeline{
         stage('Build test the docker image'){
             steps{
                 script{
-                    docker.build registery
+                    dockerImg.inside{
+                        sh 'Contianer is passing the test'
+                    }
                 }
             }
         }
