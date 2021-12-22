@@ -3,6 +3,7 @@ pipeline{
     environment{
         dockerImg = ''
         registery = "myanch200/coursework2:${currentBuildNumber}"
+        registeryCredential = 'docker_id'
     }
     stages{
         
@@ -13,9 +14,13 @@ pipeline{
                 }
             }
         }
-        stage('Deploy'){
+        stage('Deploy image to dockerhub'){
             steps{
-                echo 'Hello World'
+                script{
+                    docker.withRegistry(registery, registeryCredential){
+                        dockerImg.push()
+                    }
+                }
             }
         }
     }
