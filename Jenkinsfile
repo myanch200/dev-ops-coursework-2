@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment{
         dockerImg = ''
-        registery = "myanch200/coursework2:${env.BUILD_NUMBER}"
+        registery = "myanch200/coursework2"
         registeryCredential = 'docker_id'
     }
     stages{
@@ -18,7 +18,8 @@ pipeline{
             steps{
                 script{
                     docker.withRegistry('', registeryCredential){
-                        dockerImg.push()
+                        dockerImg.push("${env.BUILD_NUMBER}")
+                        dockerImg.push("latest")
                     }
                 }
             }
