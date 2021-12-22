@@ -17,7 +17,7 @@ pipeline{
         stage('Deploy image to dockerhub'){
             steps{
                 script{
-                    docker.withRegistry(registery, registeryCredential){
+                    docker.withRegistry('', registeryCredential){
                         dockerImg.push()
                     }
                 }
