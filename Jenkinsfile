@@ -23,5 +23,14 @@ pipeline{
                 }
             }
         }
+        stage('Build test the docker image'){
+            steps{
+                script{
+                    docker.withImage(dockerImg){
+                        docker.run('/bin/bash', '-c', 'echo "Hello World"')
+                    }
+                }
+            }
+        }
     }
 }
