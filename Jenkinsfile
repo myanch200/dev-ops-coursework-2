@@ -28,7 +28,7 @@ pipeline{
             steps{
                 script{
                     dockerImg.inside{
-                        sh 'Contianer is passing the test'
+                        sh 'echo "Contianer is passing the test"'
                     }
                 }
             }
