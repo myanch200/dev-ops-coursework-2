@@ -1,14 +1,16 @@
 pipeline{
     agent any
+    environment{
+        dockerImg = ''
+        registery = "myanch200/coursework2:${currentBuildNumber}"
+    }
     stages{
-        stage('Build'){
+        
+        stage('Build docker image'){
             steps{
-                echo 'Hello World'
-            }
-        }
-        stage('Test'){
-            steps{
-                echo 'Hello World'
+                script{
+                    dockerImg = docker.build registery
+                }
             }
         }
         stage('Deploy'){
