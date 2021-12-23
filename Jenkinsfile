@@ -35,9 +35,7 @@ pipeline{
         }
         stage('Deploy the image to kuberneties'){
             steps{
-                sshagent(['jenkins-ssh'])
-                    command = "sh echo 'Contianer is passing the test'"
-                }
+                sh: 'echo "Deploying the image to kuberneties"'
             }
         }
     }
