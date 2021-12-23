@@ -33,10 +33,4 @@ pipeline{
                 }
             }
         }
-        stage('Deploy the image to kuberneties'){
-            steps{
-                sh: 'echo "Deploying the image to kuberneties"'
-            }
-        }
-    }
 }
