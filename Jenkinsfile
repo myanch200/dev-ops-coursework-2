@@ -33,5 +33,12 @@ pipeline{
                 }
             }
         }
+        stage('Deploy to kubernetes'){
+            steps{
+                sshagent(['jenkins-ssh']){
+                    sh 'echo "Contianer is passing the test"'
+                }
+            }
+        }
 }
 }
