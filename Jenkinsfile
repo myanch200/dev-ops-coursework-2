@@ -36,7 +36,7 @@ pipeline{
         stage('Deploy to kubernetes'){
             steps{
                 sshagent(['jenkins-ssh']){
-                    sh 'echo "Contianer is passing the test"'
+                    sh "kubectl create deployment coursework2 --image=${registery}:latest"
                 }
             }
         }
