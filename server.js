@@ -3,7 +3,7 @@ var requests=0;
 var podname= process.env.HOSTNAME;
 var startTime;
 var host;
-
+// Adding comment
 var handleRequest = function(request, response) {
   response.setHeader('Content-Type', 'text/plain');
   response.writeHead(200);
