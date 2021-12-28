@@ -38,9 +38,10 @@ pipeline{
         }
         stage('Deploy to kubernetes'){
             steps{
-                sshagent(['3.16.13.169']){
-                    sh 'ls'
-                }
+                sshagent(['jenkins-ssh']) {
+                    sh 'kubectl set image deployments/coursework-deployment dcoursework2=myanch200/coursework2:latest '
+    // some block
+            }           
             }
         }
 }
