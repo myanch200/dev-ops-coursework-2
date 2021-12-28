@@ -41,7 +41,8 @@ pipeline{
                 sshagent(credentials: ['jenkins-ssh']) {
                     sh 'echo pwd'
                     sh 'ssh -t -t ubuntu@3.16.13.169 -o StrictHostKeyChecking=no'
-                    sh "echo pwd"
+                    sh 'echo pwd'
+                    sh 'exit'
     // some block
             }           
             }
