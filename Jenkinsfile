@@ -1,5 +1,8 @@
 pipeline{
     agent any
+     triggers {
+        githubPush()
+    }
     environment{
         dockerImg = ''
         registery = "myanch200/coursework2"
