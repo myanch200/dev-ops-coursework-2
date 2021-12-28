@@ -11,7 +11,8 @@
   
   - name: 2. Deploy 
     shell:
-      cmd: kubectl apply deployment coursework2  --image=myanch200/coursework2:latest
+      cmd: kubectl apply deployment coursework2  --image=myanch200/coursework2:1.0
+      
   
   - name: 3. Confirm deployment
     shell:
