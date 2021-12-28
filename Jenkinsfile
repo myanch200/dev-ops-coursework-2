@@ -38,8 +38,10 @@ pipeline{
         }
         stage('Deploy to kubernetes'){
             steps{
-                sshagent(['jenkins-ssh']) {
-                    sh 'kubectl set image deployments/coursework-deployment dcoursework2=myanch200/coursework2:latest '
+                sshagent(credentials: ['jenkins-ssh']) {
+                    sh 'echo pwd'
+                    sh 'ssh -t -t ubuntu@3.16.13.169 -o StrictHostKeyChecking=no'
+                    sh "echo pwd"
     // some block
             }           
             }
