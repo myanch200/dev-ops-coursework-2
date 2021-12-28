@@ -39,7 +39,7 @@ pipeline{
         stage('Deploy to kubernetes'){
             steps{
                 sshagent(['3.16.13.169']){
-                    sh 'ls'
+                    sh 'scp ls/home/ubuntu/'
                 }
             }
         }
