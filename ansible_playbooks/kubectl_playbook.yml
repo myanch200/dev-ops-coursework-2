@@ -6,9 +6,11 @@
   # start tasks
   tasks:
   - name: 1. Update  apt packages
+    become: yes
     apt:
       update_cache: yes
   - name: 2. Dependecy packages installation
+    become: yes
     apt:
       name: "{{item}}"
     with_items:
@@ -17,15 +19,19 @@
       - curl
       - software-properties-common
   - name: 3. Get key
+    become: yes
     shell:
       cmd: curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
   - name: 4. Confirm auth fingerprinting
+    become: yes
     shell:
       cmd: echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
   - name: 5. Update apt packages
+    become: yes
     apt:
       update_cache: yes
   - name: 6. Install kubectl
+    become: yes
     apt:
       name: kubectl
 

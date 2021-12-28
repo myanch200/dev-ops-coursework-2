@@ -5,9 +5,11 @@
 
   tasks:
   - name: 1. Kubectl  scale  deployment with 5 replicas
+    become: yes
     shell:
       cmd: kubectl scale deployments/coursework-deployment --replicas=5
 
   - name: 2. Get deployments
+    become: yes
     shell:
       cmd: kubectl get deployments
