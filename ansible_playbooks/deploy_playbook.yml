@@ -11,7 +11,7 @@
   
   - name: 2. Deploy 
     shell:
-      cmd: kubectl apply deployment coursework2  myanch200/coursework2:latest
+      cmd: kubectl apply deployment coursework2  -f myanch200/coursework2:latest
   
   - name: 3. Confirm deployment
     shell:
