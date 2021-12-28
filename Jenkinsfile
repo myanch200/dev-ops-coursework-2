@@ -39,7 +39,7 @@ pipeline{
         stage('Deploy to kubernetes'){
             steps{
                 sshagent(['jenkins-ssh']){
-                    sh 'ls ubuntu@3.16.13.169:/home/ubuntu'
+                    sh 'ls'
                 }
             }
         }
