@@ -1,22 +1,9 @@
-- name: Playbook that will deploy image from dockerhub to kubernetes
+- name: Playbook to deploy the docker image to Kubernetes
   hosts: localhost
   user: ubuntu
-  become: yes
-
-
+  
   tasks:
-  - name: 1. Update apt packages
-    become: yes
-    apt:
-      update_cache: yes
-  
-  - name: 2. Deploy 
-    become: yes
+
+  - name: 12. Deploy from Dockerhub to Kubernetes
     shell:
-      cmd: kubectl create deployment coursework-deployment  --image=myanch200/coursework2:latest
-      
-  
-  - name: 3. Confirm deployment
-    become: yes
-    shell:
-      cmd: kubectl get deployment
+      cmd: kubectl create deployment coursework-deployment --image=myanch200/coursework2
