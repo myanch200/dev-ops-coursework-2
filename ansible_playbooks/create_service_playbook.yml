@@ -7,7 +7,7 @@
   - name: 1. Create a service
     become: yes
     shell:
-      cmd: kubectl expose deployment/coursework-deployment --type="NodePort" --port 3000 --name node-port-service
+      cmd: kubectl expose deployment/coursework-deployment --type="NodePort" --port 8080 --name node-port-service
 
   - name: 2.Get services
     become: yes
