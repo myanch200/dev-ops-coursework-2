@@ -40,7 +40,7 @@ pipeline{
             steps{
                 sshagent(credentials: ['jenkins-ssh']) {
                     sh 'echo pwd'
-                    sh 'ssh -t -t ubuntu@3.20.225.53 -o StrictHostKeyChecking=no echo "ls"'
+                    sh 'ssh -t -t ubuntu@3.20.225.53 -o StrictHostKeyChecking=no sh"kubectl set image deployments/coursework-deployment coursework2=myanch200/coursework2:latest"'
                    
     // some block
             }           
