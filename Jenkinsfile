@@ -40,7 +40,7 @@ pipeline{
             steps{
                 sshagent(credentials: ['jenkins-ssh']) {
                     sh 'echo pwd'
-                    sh 'ssh -t -t ubuntu@3.20.225.53 -o StrictHostKeyChecking=no echo "kubectl rollout restart deployments/coursework-deployment"'
+                    sh 'ssh -t -t ubuntu@3.20.225.53 -o StrictHostKeyChecking=no echo "kubectl set image deployments/coursework-deploymentcoursework-deployment=myanch200/coursework2:${env.BUILD_NUMBER}"
                    
     // some block
             }           
